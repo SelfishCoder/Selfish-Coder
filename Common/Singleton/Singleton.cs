@@ -11,6 +11,11 @@ namespace SelfishCoder.Core
         /// <summary>
         /// 
         /// </summary>
+        private static bool applicationIsQuitting = default;
+        
+        /// <summary>
+        /// 
+        /// </summary>
         protected static T current;
 
         /// <summary>
@@ -22,7 +27,7 @@ namespace SelfishCoder.Core
             {
                 if (current) return current;
                 current = FindObjectOfType<T>();
-                if (!current)
+                if (!applicationIsQuitting && !current)
                 {
                     current = new GameObject(typeof(T).Name).AddComponent<T>();
                 }
@@ -46,6 +51,14 @@ namespace SelfishCoder.Core
         protected virtual void Awake()
         {
             Current = this as T;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        protected void OnApplicationQuit()
+        {
+            applicationIsQuitting = true;
         }
     }
 }
