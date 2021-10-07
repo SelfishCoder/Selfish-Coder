@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace SelfishCoder.Core
+namespace SelfishCoder.Common
 {
     /// <summary>
     /// 

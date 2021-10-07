@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace SelfishCoder.Core
+namespace SelfishCoder.Common
 {
     /// <summary>
     /// 
